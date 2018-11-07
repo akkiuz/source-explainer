@@ -2,31 +2,38 @@ var json;
 
 $(function() {
 
-    $.getJSON("data/json/data.json" , function(data) {
-      json = data;
+    $.getJSON("data/json/code.json" , function(data) {
+        codes = data;
+    });
+    $.getJSON("data/json/operator.json" , function(data) {
+        oprs = data;
     });
     
     $("#convertButton").click(function () {
         var srcText = $("#src").val();
         srcText = srcText.replace(/  +/g,"");
-        for(var i in json){
-            var codeRE = new RegExp(json[i].code,"g");
+        for(var i in codes){
+            var codeRE = new RegExp(codes[i].code,"g");
             var explanation = "";
-            switch(json[i].arg){
+            switch(codes[i].arg){
                 //引数を持つ一般の関数について
                 case "true":
-                var expArg = srcText.match(RegExp(json[i].code+"\\(.*\\)","g"));
+                var expArg = srcText.match(RegExp(codes[i].code+"\\(.*\\)","g"));
                 expArg = expArg.join("");
                 expArg = expArg.replace(/.*\(/,"");
                 var expLine = expArg.split("\,");
-                for(var j in json[i].explanation){
-                    explanation += json[i].explanation[j].a+expLine[j];
+                for(var j in codes[i].explanation){
+                    explanation += codes[i].explanation[j].a+expLine[j];
                 }
                 break;
 
+                // //if文の場合
+                // case "if":
+                // break;
+
                 //for文の場合
                 case "for":
-                var expArg = srcText.match(RegExp(json[i].code+"\\(.*\\)","g"));
+                var expArg = srcText.match(RegExp(codes[i].code+"\\(.*\\)","g"));
                 expArg = expArg.join("");
                 expArg = expArg.replace(/.*\(/,"");
                 expArg = expArg.replace(")","");
@@ -35,19 +42,22 @@ $(function() {
                 expLine0.shift();
                 expLine = expLine.concat(expLine0);
                 expLine.push("");
-                for(var j in json[i].explanation){
-                    explanation += json[i].explanation[j].a+expLine[j];
+                for(var j in codes[i].explanation){
+                    explanation += codes[i].explanation[j].a+expLine[j];
                 }
                 break;
 
+                case "false":
+                explanation = codes[i].explanation;
+                break;
+
                 default:
-                explanation = json[i].explanation;
                 break;
             }
 
             srcText = srcText.replace(
                 codeRE,
-                explanation + "\n" + json[i].code
+                explanation + "\n" + codes[i].code
             );
         }
     

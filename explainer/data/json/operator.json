@@ -1,0 +1,44 @@
+[
+    {
+        "operator" : "==",
+        "explanation" : [
+            {"a": "と"},
+            {"a": "が等しい"}
+        ]
+    },
+    {
+        "operator" : "!=",
+        "explanation" : [
+            {"a": "と"},
+            {"a": "が異なる"}
+        ]
+    },
+    {
+        "operator" : "<",
+        "explanation" : [
+            {"a": "は"},
+            {"a": "より小さい"}
+        ]
+    },
+    {
+        "operator" : ">",
+        "explanation" : [
+            {"a": "は"},
+            {"a": "より大きい"}
+        ]
+    },
+    {
+        "operator" : "<=",
+        "explanation" : [
+            {"a": "は"},
+            {"a": "以下"}
+        ]
+    },
+    {
+        "operator" : ">=",
+        "explanation" : [
+            {"a": "は"},
+            {"a": "以上"}
+        ]
+    } 
+]
