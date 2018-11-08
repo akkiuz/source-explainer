@@ -21,7 +21,7 @@
         "code":"if",
         "brace": "true",
         "arg": "if",
-        "explanation":"//条件分岐(ここがTRUEなら){ここの処理を行う}"
+        "explanation":"//条件分岐もし(){ここの処理を行う}"
     },
     {
         "code": "createCanvas",

@@ -27,9 +27,15 @@ $(function() {
                 }
                 break;
 
-                // //if文の場合
-                // case "if":
-                // break;
+                //if文の場合
+                case "if":
+                var expArg = srcText.match(RegExp(codes[i].code+"\\(.*\\)","g"));
+                expArg = expArg.join("");
+                expArg = expArg.replace(/.*\(/,"");
+                expArg = expArg.replace(")","");
+                expArg = "//"+oprsExp(expArg);
+                explanation = expArg;
+                break;
 
                 //for文の場合
                 case "for":
@@ -40,6 +46,9 @@ $(function() {
                 var expLine0 = expArg.split(";");
                 var expLine = expLine0[0].split("=");
                 expLine0.shift();
+                for(var j in expLine0){
+                    expLine0[j] = oprsExp(expLine0[j]);
+                }
                 expLine = expLine.concat(expLine0);
                 expLine.push("");
                 for(var j in codes[i].explanation){
@@ -66,5 +75,23 @@ $(function() {
             hljs.highlightBlock(block);
         });
     });
-    
+
+    //条件式を説明文に置き換える関数（引数：条件式の変数string）
+    function oprsExp(expression){
+        var expVar = "";
+        var matchedOpr = "";
+        for(var i in oprs){
+            matchedOpr = expression.match(oprs[i].operator);
+            if(matchedOpr){
+                var vars = expression.replace(/ /g,"");
+                vars = vars.split(oprs[i].operator);
+                for(var j in vars){
+                   expVar +=  vars[j]+oprs[i].explanation[j].a;
+                }
+                return expVar;
+            }else{
+                return "";
+            }
+        }
+    }
 });
