@@ -9,23 +9,36 @@ header{
 
 .wrapper{
 	display: flex;
+	-webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
 }
 
 #src{
 	resize: none;
 	color: #333;
 	background: #f8f8f8;
-	height: 400pt;
+	height: 500px;
 	width: 45%;
-	margin: 0px 15px 10px 20px;
+	margin: 20px;
 	font-size: 14px;
 }
 
 #dst{
 	overflow: scroll;
 	border: 1px solid #999;
-	height: 400pt;
+	height: 505px;
 	width: 45%;
-	margin: 0px 15px 10px 20px;
+	margin: 20px;
 	font-size: 14px;
+	line-height: 20px;
+}
+
+#canvas-wrapper{
+	pointer-events: none;
+	position: absolute;
+	left: 50%;
+	height: 500px;
+	width: 46%;
 }

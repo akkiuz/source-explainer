@@ -28,10 +28,10 @@ function draw() {
     background(100,200,255);
     for(var x=0;x<=300;x+=30){
         if(x == 150){
-            fill(255);
+            fill(255,255,255);
         }
         else{
-            fill(0);
+            fill(0,0,0);
         }
         ellipse(x,150,15,15);
     }
@@ -41,7 +41,11 @@ function draw() {
         <div id="dst">
             <pre><code class = "c++" id = "dstText"></code></pre>
         </div> 
+        <div id="canvas-wrapper">
+            <canvas id="canvas"></canvas>
+        </div>
     </div>
+
 </body>
 
 </html>

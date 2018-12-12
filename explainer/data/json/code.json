@@ -13,15 +13,24 @@
           {"a": "//繰り返し:変数「"},
           {"a": "(初期値="},
           {"a": ")」が、「"},
-          {"a": "」を満たすまで「"},
-          {"a": "」と{ }の中を繰り返す"}
+          {"a": "」を満たすあいだ「"},
+          {"a": "」と{ }を繰り返す"}
         ]
     },
     {
         "code":"if",
         "brace": "true",
         "arg": "if",
-        "explanation":"//条件分岐もし(){ここの処理を行う}"
+        "explanation": [
+            {"a": "//もし「"},
+            {"a": "」ならば{ }を行う"}
+        ]
+    },
+    {
+        "code":"else",
+        "brace": "true",
+        "arg": "false",
+        "explanation": "//ではないならば{ }を行う"
     },
     {
         "code": "createCanvas",
@@ -37,7 +46,17 @@
         "brace": "false",
         "arg": "true",
         "explanation": [
-            {"a": "//背景色をRGB値でつける(Red:"},
+            {"a": "//背景色をRGB値で指定する(Red:"},
+            {"a": ", Blue:"},
+            {"a": ", Green:"}
+        ]
+    },
+    {
+        "code": "fill",
+        "brace": "false",
+        "arg": "true",
+        "explanation": [
+            {"a": "//塗りつぶしの色をRGB値で指定する(Red:"},
             {"a": ", Blue:"},
             {"a": ", Green:"}
         ]
@@ -51,6 +70,28 @@
             {"a": ", y座標:"},
             {"a": ", 横幅:"},
             {"a": ", 高さ:"}
+        ]
+    },
+    {
+        "code": "rect",
+        "brace": "false",
+        "arg": "true",
+        "explanation": [
+            {"a": "//長方形を描く(x座標:"},
+            {"a": ", y座標:"},
+            {"a": ", 横幅:"},
+            {"a": ", 高さ:"}
+        ]
+    },
+    {
+        "code": "line",
+        "brace": "false",
+        "arg": "true",
+        "explanation": [
+            {"a": "//直線を描く(始点x座標:"},
+            {"a": ", 始点y座標:"},
+            {"a": ", 終点x座標:"},
+            {"a": ", 終点y座標:"}
         ]
     }
 ]
